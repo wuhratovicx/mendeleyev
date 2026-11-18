@@ -144,10 +144,10 @@ html[data-theme="light"] .tile,html[data-theme="light"] .row .c{color:#fff}
 <section class="view" id="v2"><button class="row eod" id="eod"></button><input class="search" id="q" type="search" data-ip="ph" placeholder="Qidirish: nomi, belgisi yoki raqami" autocomplete="off" autocapitalize="off"><div id="list"></div></section>
 <section class="view" id="v3"><div class="card"><h2 data-i="ct">Proton, neytron, elektron kalkulyatori</h2>
  <input id="fi" placeholder="H2SO4, Ca(OH)2, Al2(SO4)3" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false"><button class="go" id="fb" data-i="go">Hisobla</button><div class="ex" id="ex"></div></div>
- <div class="card" id="res" style="display:none"></div></section>
+ <div class="card" id="res" style="display:none"></div><div class="card" id="oxcard"><h2 data-i="oxt">Oksidlanish darajasi kalkulyatori</h2><input id="oi" placeholder="KMnO4, K2Cr2O7, Fe3O4" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false"><button class="go" id="ob" data-i="go">Hisobla</button><div class="ex" id="oex"></div><div id="ores" style="margin-top:12px"></div></div></section>
 <section class="view" id="v4"><div class="card" id="qz"></div></section>
 </main>
-<nav class="tabs"><button class="act" data-v="v1"><span>⚛</span><em data-i="t1">Jadval</em></button><button data-v="v2"><span>🔍</span><em data-i="t2">Qidiruv</em></button><button data-v="v3"><span>🧪</span><em data-i="t3">Hisob</em></button><button data-v="v4"><span>🎯</span><em data-i="t4">Test</em></button></nav>
+<nav class="tabs"><i class="lens"></i><button class="act" data-v="v1"><span>⚛</span><em data-i="t1">Jadval</em></button><button data-v="v2"><span>🔍</span><em data-i="t2">Qidiruv</em></button><button data-v="v3"><span>🧪</span><em data-i="t3">Hisob</em></button><button data-v="v4"><span>🎯</span><em data-i="t4">Test</em></button></nav>
 <div id="bd"></div><div id="sheet"><div id="hd"><i></i></div><div id="sb"></div></div>
 <script>
 const S="H He Li Be B C N O F Ne Na Mg Al Si P S Cl Ar K Ca Sc Ti V Cr Mn Fe Co Ni Cu Zn Ga Ge As Se Br Kr Rb Sr Y Zr Nb Mo Tc Ru Rh Pd Ag Cd In Sn Sb Te I Xe Cs Ba La Ce Pr Nd Pm Sm Eu Gd Tb Dy Ho Er Tm Yb Lu Hf Ta W Re Os Ir Pt Au Hg Tl Pb Bi Po At Rn Fr Ra Ac Th Pa U Np Pu Am Cm Bk Cf Es Fm Md No Lr Rf Db Sg Bh Hs Mt Ds Rg Cn Nh Fl Mc Lv Ts Og".split(" ");
@@ -225,8 +225,8 @@ return `<svg viewBox="0 0 160 130" width="180" height="146"><defs><radialGradien
 
 const $=id=>document.getElementById(id),BC=["var(--s)","var(--p)","var(--d)","var(--f)"],BL=["s","p","d","f"];
 const NR="Водород,Гелий,Литий,Бериллий,Бор,Углерод,Азот,Кислород,Фтор,Неон,Натрий,Магний,Алюминий,Кремний,Фосфор,Сера,Хлор,Аргон,Калий,Кальций,Скандий,Титан,Ванадий,Хром,Марганец,Железо,Кобальт,Никель,Медь,Цинк,Галлий,Германий,Мышьяк,Селен,Бром,Криптон,Рубидий,Стронций,Иттрий,Цирконий,Ниобий,Молибден,Технеций,Рутений,Родий,Палладий,Серебро,Кадмий,Индий,Олово,Сурьма,Теллур,Йод,Ксенон,Цезий,Барий,Лантан,Церий,Празеодим,Неодим,Прометий,Самарий,Европий,Гадолиний,Тербий,Диспрозий,Гольмий,Эрбий,Тулий,Иттербий,Лютеций,Гафний,Тантал,Вольфрам,Рений,Осмий,Иридий,Платина,Золото,Ртуть,Таллий,Свинец,Висмут,Полоний,Астат,Радон,Франций,Радий,Актиний,Торий,Протактиний,Уран,Нептуний,Плутоний,Америций,Кюрий,Берклий,Калифорний,Эйнштейний,Фермий,Менделевий,Нобелий,Лоуренсий,Резерфордий,Дубний,Сиборгий,Борий,Хассий,Мейтнерий,Дармштадтий,Рентгений,Коперниций,Нихоний,Флеровий,Московий,Ливерморий,Теннессин,Оганесон".split(",");
-const I18={uz:{title:"Mendeleyev davriy jadvali",t1:"Jadval",t2:"Qidiruv",t3:"Hisob",t4:"Test",elems:"-elementlar",el:"-element",big:"Katta",small:"Kichik",cap:"*LANTANOIDLAR VA **AKTINOIDLAR",ph:"Qidirish: nomi, belgisi yoki raqami",ct:"Proton, neytron, elektron kalkulyatori",go:"Hisobla",pr:"Proton",ne:"Neytron",el2:"Elektron",mn:"Massa soni",am:"Atom massasi",gr:"Guruh",pe:"Davr",sl:"Elektron qavatlari",lan:"lantanoid",act:"aktinoid",c1:"Element",c2:"Soni",tot:"Jami",chg:"zaryad",mr:"Massa sonlari yig'indisi (Mr)",e1:"Qavs yopilmagan",e2:"Noma'lum element: ",e3:"Ortiqcha qavs",e4:"Noto'g'ri belgi: ",e5:"Formula bo'sh",v3d:"3D ko'rinish",tq:"Test",qt:"Viktorina",qd:"10 ta savol. Bilimingizni sinab ko'ring!",q1:"Belgi → nom",q2:"Nom → belgi",q3:"Raqam → element",q1q:"Bu qaysi element?",q2q:"Uning belgisi qaysi?",q3q:"Bu tartib raqami qaysi elementniki?",qbest:"Eng yaxshi natija",qres:"Natija",qagain:"Qayta urinish",qhome:"Boshiga",eod:"Bugungi element",set:"Sozlamalar",th:"Mavzu",tauto:"Avto",tlight:"Yorug'",tdark:"Qorong'i",view:"Interfeys",vphone:"Telefon",vdesk:"Kompyuter",lang:"Til",snd:"Ovoz",hap:"Tebranish",anm:"Animatsiyalar",bgd:"Jadval: katta rejim",ver:"Versiya",cls:"Yopish",g:"gaz",l:"suyuqlik",c:"qattiq (kristall yoki kukun)",m:"qattiq (metall)",r:"radioaktiv, asosan sun'iy yo'l bilan olinadi"},
-ru:{title:"Периодическая таблица Менделеева",t1:"Таблица",t2:"Поиск",t3:"Расчёт",t4:"Тест",elems:"-элементы",el:"-элемент",big:"Крупно",small:"Мелко",cap:"*ЛАНТАНОИДЫ И **АКТИНОИДЫ",ph:"Поиск: название, символ или номер",ct:"Калькулятор протонов, нейтронов и электронов",go:"Рассчитать",pr:"Протоны",ne:"Нейтроны",el2:"Электроны",mn:"Массовое число",am:"Атомная масса",gr:"Группа",pe:"Период",sl:"Электронные оболочки",lan:"лантаноид",act:"актиноид",c1:"Элемент",c2:"Кол-во",tot:"Итого",chg:"заряд",mr:"Сумма массовых чисел (Mr)",e1:"Скобка не закрыта",e2:"Неизвестный элемент: ",e3:"Лишняя скобка",e4:"Недопустимый символ: ",e5:"Пустая формула",v3d:"3D-вид",tq:"Тест",qt:"Викторина",qd:"10 вопросов. Проверьте свои знания!",q1:"Символ → название",q2:"Название → символ",q3:"Номер → элемент",q1q:"Что это за элемент?",q2q:"Какой у него символ?",q3q:"Чей это порядковый номер?",qbest:"Лучший результат",qres:"Результат",qagain:"Ещё раз",qhome:"В начало",eod:"Элемент дня",set:"Настройки",th:"Тема",tauto:"Авто",tlight:"Светлая",tdark:"Тёмная",view:"Интерфейс",vphone:"Телефон",vdesk:"Компьютер",lang:"Язык",snd:"Звук",hap:"Вибрация",anm:"Анимации",bgd:"Таблица: крупный режим",ver:"Версия",cls:"Закрыть",g:"газ",l:"жидкость",c:"твёрдое (кристаллы или порошок)",m:"твёрдое (металл)",r:"радиоактивный, в основном получен искусственно"}};
+const I18={uz:{oxt:"Oksidlanish darajasi kalkulyatori",ox:"Oksidlanish darajalari",oxn:"Oksidlanish darajasini aniqlab bo'lmadi",oxa:"o'rtacha qiymat",oxp:"peroksid",oxs:"superoksid",title:"Mendeleyev davriy jadvali",t1:"Jadval",t2:"Qidiruv",t3:"Hisob",t4:"Test",elems:"-elementlar",el:"-element",big:"Katta",small:"Kichik",cap:"*LANTANOIDLAR VA **AKTINOIDLAR",ph:"Qidirish: nomi, belgisi yoki raqami",ct:"Proton, neytron, elektron kalkulyatori",go:"Hisobla",pr:"Proton",ne:"Neytron",el2:"Elektron",mn:"Massa soni",am:"Atom massasi",gr:"Guruh",pe:"Davr",sl:"Elektron qavatlari",lan:"lantanoid",act:"aktinoid",c1:"Element",c2:"Soni",tot:"Jami",chg:"zaryad",mr:"Massa sonlari yig'indisi (Mr)",e1:"Qavs yopilmagan",e2:"Noma'lum element: ",e3:"Ortiqcha qavs",e4:"Noto'g'ri belgi: ",e5:"Formula bo'sh",v3d:"3D ko'rinish",tq:"Test",qt:"Viktorina",qd:"10 ta savol. Bilimingizni sinab ko'ring!",q1:"Belgi → nom",q2:"Nom → belgi",q3:"Raqam → element",q1q:"Bu qaysi element?",q2q:"Uning belgisi qaysi?",q3q:"Bu tartib raqami qaysi elementniki?",qbest:"Eng yaxshi natija",qres:"Natija",qagain:"Qayta urinish",qhome:"Boshiga",eod:"Bugungi element",set:"Sozlamalar",th:"Mavzu",tauto:"Avto",tlight:"Yorug'",tdark:"Qorong'i",view:"Interfeys",vphone:"Telefon",vdesk:"Kompyuter",lang:"Til",snd:"Ovoz",hap:"Tebranish",anm:"Animatsiyalar",bgd:"Jadval: katta rejim",ver:"Versiya",cls:"Yopish",g:"gaz",l:"suyuqlik",c:"qattiq (kristall yoki kukun)",m:"qattiq (metall)",r:"radioaktiv, asosan sun'iy yo'l bilan olinadi"},
+ru:{oxt:"Калькулятор степеней окисления",ox:"Степени окисления",oxn:"Не удалось определить степени окисления",oxa:"средняя величина",oxp:"пероксид",oxs:"супероксид",title:"Периодическая таблица Менделеева",t1:"Таблица",t2:"Поиск",t3:"Расчёт",t4:"Тест",elems:"-элементы",el:"-элемент",big:"Крупно",small:"Мелко",cap:"*ЛАНТАНОИДЫ И **АКТИНОИДЫ",ph:"Поиск: название, символ или номер",ct:"Калькулятор протонов, нейтронов и электронов",go:"Рассчитать",pr:"Протоны",ne:"Нейтроны",el2:"Электроны",mn:"Массовое число",am:"Атомная масса",gr:"Группа",pe:"Период",sl:"Электронные оболочки",lan:"лантаноид",act:"актиноид",c1:"Элемент",c2:"Кол-во",tot:"Итого",chg:"заряд",mr:"Сумма массовых чисел (Mr)",e1:"Скобка не закрыта",e2:"Неизвестный элемент: ",e3:"Лишняя скобка",e4:"Недопустимый символ: ",e5:"Пустая формула",v3d:"3D-вид",tq:"Тест",qt:"Викторина",qd:"10 вопросов. Проверьте свои знания!",q1:"Символ → название",q2:"Название → символ",q3:"Номер → элемент",q1q:"Что это за элемент?",q2q:"Какой у него символ?",q3q:"Чей это порядковый номер?",qbest:"Лучший результат",qres:"Результат",qagain:"Ещё раз",qhome:"В начало",eod:"Элемент дня",set:"Настройки",th:"Тема",tauto:"Авто",tlight:"Светлая",tdark:"Тёмная",view:"Интерфейс",vphone:"Телефон",vdesk:"Компьютер",lang:"Язык",snd:"Звук",hap:"Вибрация",anm:"Анимации",bgd:"Таблица: крупный режим",ver:"Версия",cls:"Закрыть",g:"газ",l:"жидкость",c:"твёрдое (кристаллы или порошок)",m:"твёрдое (металл)",r:"радиоактивный, в основном получен искусственно"}};
 let cfg={lg:/^ru/i.test(navigator.language||"")?"ru":"uz",snd:true,hap:true,anim:true,big:false,view:"",theme:"auto"};
 try{Object.assign(cfg,JSON.parse(localStorage.getItem("dj_cfg")||"{}"))}catch(e){}
 const save=()=>{try{localStorage.setItem("dj_cfg",JSON.stringify(cfg))}catch(e){}};
@@ -322,6 +322,38 @@ else if(c==")"||c=="]"){i++;return o}
 else if(/[A-Z]/.test(c)){let s=c;i++;while(i<f.length&&/[a-z]/.test(f[i]))s+=f[i++];if(!S.includes(s))throw new Error(t("e2")+s);const n=num();o[s]=(o[s]||0)+n}
 else throw new Error(t("e4")+c)}return o};
 const r=grp();if(i<f.length)throw new Error(t("e3"));return r};
+/* oksidlanish darajasi */
+const OXEN="2.2 0 .98 1.57 2.04 2.55 3.04 3.44 3.98 0 .93 1.31 1.61 1.9 2.19 2.58 3.16 0 .82 1 1.36 1.54 1.63 1.66 1.55 1.83 1.88 1.91 1.9 1.65 1.81 2.01 2.18 2.55 2.96 3 .82 .95 1.22 1.33 1.6 2.16 1.9 2.2 2.28 2.2 1.93 1.69 1.78 1.96 2.05 2.1 2.66 2.6 .79 .89 1.1 1.12 1.13 1.14 1.13 1.17 1.2 1.2 1.1 1.22 1.23 1.24 1.25 1.1 1.27 1.3 1.5 2.36 1.9 2.2 2.2 2.28 2.54 2 1.62 2.33 2.02 2 2.2 2.2 .7 .9 1.1 1.3 1.5 1.38 1.36 1.28".split(" ").map(Number);
+const OXT={Mn:[2,7,4,6,3],Fe:[3,2,6],Cr:[3,6,2],Cu:[2,1],Co:[2,3],Ni:[2,3],Ti:[4,3],V:[5,4,3,2],Hg:[2,1],Au:[3,1],Pt:[4,2],Pd:[2,4],Sn:[4,2],Pb:[2,4],Bi:[3,5],Tl:[1,3],Mo:[6,4],W:[6,4],Cl:[7,5,3,1,-1],Br:[5,7,3,1,-1],I:[5,7,1,-1,3],N:[5,3,-3,4,2,1],P:[5,3,-3,1],S:[6,4,-2,2,-1],C:[4,2,-4],B:[3],Si:[4,-4],Se:[6,4,-2],As:[5,3,-3],Sb:[5,3,-3]};
+const OXF={F:-1,Al:3,Zn:2,Cd:2,Ag:1,Ga:3,Sc:3,Y:3,La:3};
+const oxFix=e=>{if(OXF[e]!==undefined)return OXF[e];const z=S.indexOf(e)+1,p=pos(z);return z>1&&p[0]<9&&p[1]<=2?p[1]:undefined};
+const oxCand=z=>{const e=S[z-1],p=pos(z),r=p[0],g=p[1];let lo=0,hi;if(r>=9)hi=6;else if(g<=12)hi=Math.min(g,8);else{hi=g==18?8:g-10;if(g>=14&&g<18)lo=g-18}
+const a=(OXT[e]||(r>=9?[3,4,2]:g<=12?[Math.min(g,8)]:[hi])).slice();for(let v=hi;v>=lo;v--)if(!a.includes(v))a.push(v);return a};
+const OX=(tot,q)=>{const ks=Object.keys(tot),Z=e=>S.indexOf(e)+1,en=e=>OXEN[Z(e)-1]||1.3,s={};
+if(ks.length==1)return{[ks[0]]:q/tot[ks[0]]};
+let fx=0;const U=[],oth=ks.filter(e=>e!="H"&&e!="O");
+oth.forEach(e=>{const f=oxFix(e);if(f===undefined)U.push(e);else{s[e]=f;fx+=f*tot[e]}});
+const hasO=tot.O>0,hasH=tot.H>0,hy=!hasO&&oth.length>0&&oth.every(e=>en(e)<2.1);
+if(!U.length){if(hasO){if(hasH){s.H=1;fx+=tot.H}s.O=(q-fx)/tot.O}else if(hasH)s.H=(q-fx)/tot.H}
+else{if(hasO){s.O=-2;fx-=2*tot.O}if(hasH){s.H=hy?-1:1;fx+=s.H*tot.H}
+const rem=q-fx;
+if(U.length==1)s[U[0]]=rem/tot[U[0]];
+else if(U.length>5)return null;
+else{U.sort((a,b)=>en(b)-en(a));const C=U.map(e=>oxCand(Z(e)));
+const run=fr=>{let best=null,bs=1e9;const cur=[];const rec=(i,sum)=>{const e=U[i];
+if(i==U.length-1){const v=(rem-sum)/tot[e];if(Number.isInteger(v)&&C[i].includes(v)||fr&&Math.abs(v)<=8){cur[i]=v;const st=Object.assign({},s);U.forEach((x,k)=>st[x]=cur[k]);let p=0;U.forEach((x,k)=>{const ix=C[k].indexOf(cur[k]);p+=ix<0?6:ix});
+for(const a of ks)for(const b of ks)if(en(a)>en(b)+.05&&st[a]>0&&st[b]<0)p+=10;if(p<bs){bs=p;best=cur.slice()}}return}
+for(const v of C[i]){cur[i]=v;rec(i+1,sum+v*tot[e])}};rec(0,0);return best};
+const b=run(0)||run(1);if(!b)return null;U.forEach((e,i)=>s[e]=b[i])}}
+if(Math.abs(ks.reduce((a,e)=>a+s[e]*tot[e],0)-q)>1e-9)return null;
+const o={};ks.forEach(e=>o[e]=s[e]);return o};
+const OXFM=v=>{if(Math.abs(v)<1e-9)return"0";const sg=v>0?"+":"\u2212",a=Math.abs(v);if(Math.abs(a-Math.round(a))<1e-9)return sg+Math.round(a);for(let d=2;d<=12;d++){const n=a*d;if(Math.abs(n-Math.round(n))<1e-9)return sg+Math.round(n)+"/"+d}return sg+a.toFixed(2)};
+const OXH=(tot,q,tr)=>{const r=OX(tot,q);if(!r)return'<div class="ox"><b>'+tr("ox")+'</b><div class="oxe">'+tr("oxn")+'</div></div>';
+let av=0,ch="";const sm=[],ks=Object.keys(tot);
+for(const e in r){const v=r[e],n=tot[e],a=!Number.isInteger(v)||(e=="C"&&n>1&&tot.H>0&&ks.every(x=>"C H O N S F Cl Br I P".split(" ").includes(x)));if(a)av=1;
+const nt=e=="O"&&v==-1?" ("+tr("oxp")+")":e=="O"&&v==-.5?" ("+tr("oxs")+")":"";
+ch+='<span class="oxc"><b>'+e+'</b><sup>'+OXFM(v)+(a?"*":"")+'</sup><small>\u00d7'+n+nt+'</small></span>';sm.push(n+"\u00b7("+OXFM(v)+")")}
+return'<div class="ox"><b>'+tr("ox")+'</b><div class="oxl">'+ch+'</div><div class="oxs">'+sm.join(" + ")+" = "+OXFM(q)+'</div>'+(av?'<div class="oxs">* '+tr("oxa")+'</div>':"")+'</div>'};
 const calc=()=>{const res=$("res");let raw=$("fi").value.trim();if(!raw){res.style.display="none";return}res.style.display="block";
 try{raw=raw.replace(/[\u2080-\u2089]/g,c=>c.charCodeAt(0)-8320).replace(/\u00b2/g,"^2").replace(/\u00b3/g,"^3").replace(/\u207a/g,"+").replace(/\u207b/g,"-").replace(/\u2212/g,"-");
 let q=0,m=raw.match(/(?:\^|\s)(\d*)([+-])$/);
@@ -334,10 +366,24 @@ const E=P-q;res.innerHTML=`<table><tr><th>${t("c1")}</th><th>${t("c2")}</th><th>
 tone(523,.2,"triangle",.07);tone(784,.25,"triangle",.07,.09);hp("light")}
 catch(e){res.innerHTML=`<div class="er">${e.message}</div>`;tone(160,.25,"sawtooth",.05,0,90)}};
 $("fb").onclick=calc;$("fi").addEventListener("keydown",e=>{if(e.key==="Enter"){calc();e.target.blur()}});
-["H2O","H2S","HCl","HNO3","H2SO4","H3PO4","Ca(OH)2","Al2(SO4)3","NH4^+","CuSO4\u00b75H2O"].forEach(x=>{const b=document.createElement("button");b.textContent=x;b.onclick=()=>{$("fi").value=x;calc()};$("ex").appendChild(b)});
+["H2O","H2S","HCl","HNO3","H2SO4","H3PO4","Ca(OH)2","Al2(SO4)3","NH4^+","CuSO4\u00b75H2O","KMnO4","K2Cr2O7","Fe3O4","H2O2","NaH","CH3COOH"].forEach(x=>{const b=document.createElement("button");b.textContent=x;b.onclick=()=>{$("fi").value=x;calc()};$("ex").appendChild(b)});
 /* pastki tablar */
 document.querySelectorAll(".tabs button").forEach(b=>b.onclick=()=>{hideEl();document.querySelectorAll(".tabs button").forEach(x=>x.classList.toggle("act",x===b));document.querySelectorAll(".view").forEach(v=>v.classList.toggle("on",v.id===b.dataset.v));ac();tone(440,.08,"triangle",.05);hp("light")});
 
+let lL=null,lW=0;const lens=()=>{const a=document.querySelector(".tabs button.act"),l=document.querySelector(".tabs .lens");if(!a||!l)return;const L=a.offsetLeft,W=a.offsetWidth;
+if(lL===null||!l.animate||L===lL&&W===lW){l.style.left=L+"px";l.style.width=W+"px";lL=L;lW=W;return}
+const x=Math.min(L,lL),w=Math.max(L+W,lL+lW)-x;l.getAnimations().forEach(k=>k.cancel());
+l.animate([{left:lL+"px",width:lW+"px",transform:"scale(1,1)"},{left:x+"px",width:w+"px",transform:"scale(1,.9)",offset:.45},{left:L+"px",width:W+"px",transform:"scale(1,1)"}],{duration:560,easing:"cubic-bezier(.32,.72,0,1)"});
+l.style.left=L+"px";l.style.width=W+"px";lL=L;lW=W};
+document.querySelectorAll(".tabs button").forEach(b=>b.addEventListener("click",()=>requestAnimationFrame(lens)));addEventListener("resize",lens);addEventListener("load",lens);lens();setTimeout(lens,300);
+const OG=id=>document.getElementById(id);
+const oxCalc=()=>{const out=OG("ores");let raw=OG("oi").value.trim();if(!raw){out.innerHTML="";return}
+try{raw=raw.replace(/[\u2080-\u2089]/g,c=>c.charCodeAt(0)-8320).replace(/\u00b2/g,"^2").replace(/\u00b3/g,"^3").replace(/\u207a/g,"+").replace(/\u207b/g,"-").replace(/\u2212/g,"-");
+let q=0,m=raw.match(/(?:\^|\s)(\d*)([+-])$/);if(m){q=(m[1]?+m[1]:1)*(m[2]=="+"?1:-1);raw=raw.slice(0,m.index)}else{m=raw.match(/([A-Za-z\d)\]])([+-])$/);if(m){q=m[2]=="+"?1:-1;raw=raw.slice(0,-1)}}
+raw=raw.replace(/\s+/g,"");const tot={};raw.split(/[\u00b7*.]/).forEach(p=>{const mm=p.match(/^(\d+)(.*)$/),k=mm?+mm[1]:1,g=parseF(mm?mm[2]:p);for(const e in g)tot[e]=(tot[e]||0)+g[e]*k});
+if(!Object.keys(tot).length)throw new Error(t("e5"));out.innerHTML=OXH(tot,q,t)}catch(e){out.innerHTML='<div class="oxe">'+e.message+'</div>'}};
+OG("ob").onclick=oxCalc;OG("oi").addEventListener("keydown",e=>{if(e.key==="Enter"){oxCalc();e.target.blur()}});
+["H2SO4","KMnO4","K2Cr2O7","Fe3O4","H2O2","NaH","NH4NO3","CH3COOH","SO4^2-","MnO4^-","Cr2O7^2-"].forEach(x=>{const b=document.createElement("button");b.textContent=x;b.onclick=()=>{OG("oi").value=x;oxCalc()};OG("oex").appendChild(b)});
 /* kun elementi */
 const eodRender=()=>{const z=(Math.floor(Date.now()/864e5)%118)+1,b=$("eod");b.innerHTML=`<span class="c" style="background:${BC[blk(z)]}">${S[z-1]}</span><span class="n"><span style="font-size:11px;color:var(--mut)">${t("eod")}</span><b>${NM(z-1)}</b><span>${z} \u00b7 ${mass(z-1)}</span></span><span class="z">\u203a</span>`;b.onclick=()=>{pop(z);hp("tap");showEl(z)}};
 /* viktorina */
@@ -362,7 +408,7 @@ document.querySelectorAll("#wrap .e[data-z] u").forEach(u=>u.textContent=NM(+u.p
 document.querySelectorAll("#list .row").forEach(r=>{const z=+r.dataset.z;r.querySelector(".n b").textContent=NM(z-1);r.querySelector(".n span").textContent=mass(z-1)+" \u00b7 "+BL[blk(z)]+t("el")});
 [...chips.children].slice(0,4).forEach((b,k)=>b.lastChild.textContent=BL[k]+t("elems"));zb.textContent=zbt();
 $("snd").textContent=muted?"\u{1F507}":"\u{1F50A}";
-if($("res").style.display==="block")calc();eodRender();if(!qs||qs.done)qHome();
+if($("res").style.display==="block")calc();if(OG("ores").innerHTML)oxCalc();eodRender();if(!qs||qs.done)qHome();
 if(sheet.classList.contains("on")){mode==="set"?showSet():showEl(cur)}};
 relang();
 <\/script>
@@ -451,6 +497,68 @@ q$(".o3bar").querySelectorAll("button").forEach(b=>b.onclick=()=>{const k=b.data
 sync();ov.classList.add("on");last=performance.now();cancelAnimationFrame(raf);raf=requestAnimationFrame(frame)};
 })();
 <\/script>
+<style>
+.ox{margin-top:12px;padding-top:10px;border-top:1px solid var(--line,#888)}
+.ox>b{display:block;font-size:14px;margin-bottom:8px}
+.oxl{display:flex;flex-wrap:wrap;gap:8px}
+.oxc{display:inline-flex;align-items:flex-start;gap:3px;padding:6px 10px;border-radius:12px;background:var(--card2,rgba(128,128,128,.18));font:700 20px Georgia,serif;animation:oxin .45s cubic-bezier(.22,1,.36,1) backwards}
+.oxc sup{font:700 13px system-ui,sans-serif;color:var(--acc,#2f6fe0);margin-top:-2px}
+.oxc small{font:600 11px system-ui,sans-serif;opacity:.65;align-self:flex-end}
+.oxs{margin-top:8px;font-size:13px;opacity:.75}
+.oxe{color:#d33;font-weight:600}
+@keyframes oxin{from{opacity:0;transform:translateY(8px) scale(.9)}}
+
+/* ===== LIQUID GLASS (telefon) ===== */
+:root{--g1:rgba(255,255,255,.15);--g2:rgba(255,255,255,.04);--gb:rgba(255,255,255,.26);--gh:rgba(255,255,255,.6);--gl:rgba(255,255,255,.2);--gs:0 10px 30px rgba(0,0,0,.45),0 2px 6px rgba(0,0,0,.3)}
+html[data-theme="light"]{--g1:rgba(255,255,255,.72);--g2:rgba(255,255,255,.38);--gb:rgba(255,255,255,.95);--gh:#fff;--gl:rgba(255,255,255,.85);--gs:0 10px 30px rgba(40,60,120,.22),0 2px 6px rgba(40,60,120,.12)}
+body{background:radial-gradient(420px 320px at 88% 6%,rgba(120,170,255,.3),transparent 70%),radial-gradient(380px 300px at 6% 94%,rgba(200,70,120,.26),transparent 70%),var(--bg)}
+html[data-theme="light"] body{background:radial-gradient(420px 320px at 88% 6%,rgba(90,140,255,.25),transparent 70%),radial-gradient(380px 300px at 6% 94%,rgba(255,110,160,.2),transparent 70%),var(--bg)}
+html[data-theme] .top,html[data-theme] .tabs{position:fixed;z-index:15;background:linear-gradient(135deg,var(--g1),var(--g2));-webkit-backdrop-filter:blur(22px) saturate(180%);backdrop-filter:blur(22px) saturate(180%);border:1px solid var(--gb);box-shadow:inset 0 1px 0 var(--gh),inset 0 -1px 0 rgba(255,255,255,.1),inset 0 0 22px rgba(255,255,255,.07),var(--gs)}
+html[data-theme] .top{top:calc(env(safe-area-inset-top,0px) + 8px);left:10px;right:10px;padding:6px 8px 6px 16px;border-radius:26px}
+html[data-theme] .tabs{left:14px;right:14px;bottom:calc(env(safe-area-inset-bottom,0px) + 10px);padding:6px;border-radius:32px;overflow:hidden}
+html[data-theme] .top::before,html[data-theme] .tabs::before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:linear-gradient(160deg,rgba(255,255,255,.32),transparent 36%,transparent 64%,rgba(255,255,255,.1));opacity:.7;z-index:3}
+html[data-theme] .top button{background:var(--g1);border:1px solid var(--gb);box-shadow:inset 0 1px 0 var(--gh)}
+html[data-theme] .tabs button{position:relative;z-index:2;padding:7px 0 6px;border-radius:26px;transition:color .3s,transform .2s}
+html[data-theme] .tabs button:active{transform:scale(.9)}
+.tabs .lens{transition:none!important;position:absolute;z-index:1;top:6px;bottom:6px;left:0;width:25%;border-radius:26px;background:linear-gradient(180deg,var(--gl),rgba(255,255,255,.06));border:1px solid var(--gb);box-shadow:inset 0 1px 0 var(--gh),inset 0 -6px 12px rgba(255,255,255,.07),0 4px 14px rgba(0,0,0,.25);-webkit-backdrop-filter:blur(8px) brightness(1.15);backdrop-filter:blur(8px) brightness(1.15);transition:transform .5s cubic-bezier(.3,1.45,.5,1),width .5s cubic-bezier(.3,1.45,.5,1);pointer-events:none}
+.view{padding:calc(env(safe-area-inset-top,0px) + 68px) 8px calc(env(safe-area-inset-bottom,0px) + 98px)}
+html[data-theme] #sheet{background:linear-gradient(160deg,rgba(32,36,50,.64),rgba(14,16,22,.52));-webkit-backdrop-filter:blur(28px) saturate(180%);backdrop-filter:blur(28px) saturate(180%);border:1px solid var(--gb);border-bottom:0;box-shadow:inset 0 1px 0 var(--gh),0 -12px 40px rgba(0,0,0,.45)}
+html[data-theme="light"] #sheet{background:linear-gradient(160deg,rgba(255,255,255,.8),rgba(240,244,255,.62));box-shadow:inset 0 1px 0 #fff,0 -12px 40px rgba(40,60,120,.22)}
+#bd{-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px)}
+
+.ox{margin:0 0 12px;padding:0 0 12px;border-top:0;border-bottom:1px solid var(--line,#888)}
+.oxc:nth-child(2){animation-delay:.06s}.oxc:nth-child(3){animation-delay:.12s}.oxc:nth-child(4){animation-delay:.18s}.oxc:nth-child(5){animation-delay:.24s}
+@keyframes dockin{from{opacity:0;transform:translateY(24px) scale(.94)}}
+@keyframes topin{from{opacity:0;transform:translateY(-18px) scale(.96)}}
+html[data-theme] .tabs{animation:dockin .7s cubic-bezier(.22,1,.36,1) backwards}
+html[data-theme] .top{animation:topin .7s cubic-bezier(.22,1,.36,1) backwards}
+.tabs button span{transition:transform .45s cubic-bezier(.3,1.5,.5,1)}
+.tabs button.act span{transform:translateY(-1px) scale(1.15)}
+.tabs .lens::after{content:"";position:absolute;inset:0;border-radius:inherit;background:linear-gradient(100deg,transparent 30%,rgba(255,255,255,.35) 50%,transparent 70%);background-size:250% 100%;animation:lsh 4.5s ease-in-out infinite}
+@keyframes lsh{0%,60%{background-position:150% 0}100%{background-position:-50% 0}}
+
+:root{--ios:cubic-bezier(.32,.72,0,1)}
+@keyframes iosin{from{opacity:0;transform:translateY(12px) scale(.96)}}
+@keyframes iosfade{from{opacity:0}}
+
+/* ===== iOS animatsiyalar (telefon) ===== */
+#oi{width:100%;font-size:20px;font-weight:600;padding:12px 14px;border-radius:12px;border:1.5px solid var(--line);background:var(--inbg);color:var(--ink);outline:none;-webkit-appearance:none}#oi:focus{border-color:var(--acc)}
+.view.on{animation:iosin .5s var(--ios)}
+#t{animation:iosin .7s var(--ios) backwards}
+#sheet{transition:transform .55s var(--ios)}
+#bd{transition:opacity .4s var(--ios)}
+.e{transition:transform .3s var(--ios)}.e:active{transform:scale(.92)}
+.go,.ex button,.chips button,.qo,.row,.top button,.nv button,.seg button,.tabs button{transition:transform .35s var(--ios),background .25s,opacity .25s,color .25s}
+.go:active,.ex button:active,.chips button:active,.qo:active,.top button:active,.nv button:active{transform:scale(.94)}
+.row:active{transform:scale(.985)}
+.go:active{opacity:1}
+.sw{transition:background .3s var(--ios)}.sw::after{transition:transform .4s var(--ios)}
+.tabs button span{transition:transform .5s var(--ios)}
+.tabs button.act span{transform:translateY(-1px) scale(1.12)}
+html[data-theme] .tabs{animation:dockin .8s var(--ios) backwards}
+html[data-theme] .top{animation:topin .8s var(--ios) backwards}
+#res table,#res .big,#oxcard .ox{animation:iosin .55s var(--ios) backwards}
+</style>
 </body></html>
 </script>
 <script type="text/plain" id="doc-desk"><!DOCTYPE html>
@@ -491,11 +599,12 @@ h1{color:#fff;text-align:center;font-size:clamp(15px,2.6vw,30px);margin:2px 0 10
 <div id="info">Elementni bosing — to'liq ma'lumot shu yerda chiqadi.</div>
 <style>#calc{margin:10px auto 0;max-width:1500px;padding:12px;border-radius:8px;background:var(--card);color:var(--ink)}#calc h2{margin:0 0 8px;font-size:17px}#calc .row{display:flex;gap:8px;flex-wrap:wrap}#fi{flex:1;min-width:200px;font:600 18px system-ui;padding:8px 10px;border:2px solid var(--line);border-radius:8px;background:var(--card);color:var(--ink)}#calc button{font:600 15px system-ui;padding:8px 16px;border-radius:8px;border:2px solid var(--line);background:var(--p);color:#000;cursor:pointer}#calc .ch{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0}#calc .ch button{font-size:13px;padding:3px 10px;background:var(--card);color:var(--ink);border-radius:14px}#res table{border-collapse:collapse;margin:8px 0;min-width:320px}#res td,#res th{border:1px solid var(--line);padding:4px 12px;text-align:center}#res .tot td{font-weight:700;background:var(--p);color:#000}#res .big{font-size:16px;font-weight:700;margin-top:6px}#res .er{color:#d33;font-weight:600}</style>
 <div id="calc"><h2>Formula kalkulyatori: proton, neytron, elektron</h2><div class="row"><input id="fi" placeholder="Masalan: H2SO4, Ca(OH)2, Al2(SO4)3" autocomplete="off"><button id="fb">Hisobla</button></div><div class="ch" id="fc"></div><div id="res"></div></div>
+<div id="oxcalc"><h2 id="oh">Oksidlanish darajasi kalkulyatori</h2><div class="row"><input id="oi" placeholder="Masalan: KMnO4, K2Cr2O7, Fe3O4" autocomplete="off"><button id="ob">Hisobla</button></div><div class="ch" id="oex"></div><div id="ores"></div></div>
 <div id="quiz"></div>
 <script>
 const NR="Водород,Гелий,Литий,Бериллий,Бор,Углерод,Азот,Кислород,Фтор,Неон,Натрий,Магний,Алюминий,Кремний,Фосфор,Сера,Хлор,Аргон,Калий,Кальций,Скандий,Титан,Ванадий,Хром,Марганец,Железо,Кобальт,Никель,Медь,Цинк,Галлий,Германий,Мышьяк,Селен,Бром,Криптон,Рубидий,Стронций,Иттрий,Цирконий,Ниобий,Молибден,Технеций,Рутений,Родий,Палладий,Серебро,Кадмий,Индий,Олово,Сурьма,Теллур,Йод,Ксенон,Цезий,Барий,Лантан,Церий,Празеодим,Неодим,Прометий,Самарий,Европий,Гадолиний,Тербий,Диспрозий,Гольмий,Эрбий,Тулий,Иттербий,Лютеций,Гафний,Тантал,Вольфрам,Рений,Осмий,Иридий,Платина,Золото,Ртуть,Таллий,Свинец,Висмут,Полоний,Астат,Радон,Франций,Радий,Актиний,Торий,Протактиний,Уран,Нептуний,Плутоний,Америций,Кюрий,Берклий,Калифорний,Эйнштейний,Фермий,Менделевий,Нобелий,Лоуренсий,Резерфордий,Дубний,Сиборгий,Борий,Хассий,Мейтнерий,Дармштадтий,Рентгений,Коперниций,Нихоний,Флеровий,Московий,Ливерморий,Теннессин,Оганесон".split(",");
-const I18={uz:{title:"D.I.MENDELEYEV KIMYOVIY ELEMENTLAR DAVRIY SISTEMASI",davr:"DAVR",qator:"QATOR",grp:"ELEMENTLAR GURUHI",enl:"ENERGETIK QAVATLAR",cap:"*LANTANOIDLAR VA **AKTINOIDLAR",elems:"-elementlar",hint:"Elementni bosing \u2014 to'liq ma'lumot shu yerda chiqadi.",ct:"Formula kalkulyatori: proton, neytron, elektron",ph:"Masalan: H2SO4, Ca(OH)2, Al2(SO4)3",go:"Hisobla",e1:"Qavs yopilmagan",e2:"Noma'lum element: ",e3:"Ortiqcha qavs",e4:"Noto'g'ri belgi: ",e5:"Formula bo'sh",c1:"Element",c2:"Soni",pr:"Proton",ne:"Neytron",el2:"Elektron",tot:"Jami",chg:"zaryad",pne:"Proton + neytron + elektron",mr:"Massa sonlari yig'indisi (yaxlitlangan Mr)",num:"tartib raqami",el:"-element",am:"Atom massasi",mn:"massa soni",ipr:"Protonlar",iel:"elektronlar",ine:"neytronlar",sl:"Elektron qavatlari",hl:"Holati",gr:"guruh",pe:"davr",ro:"qator",lan:"lantanoid",act:"aktinoid",v3d:"3D ko'rinish",fa:"Atom tuzilishi",fb:"Tashqi ko'rinishi",g:"gaz",l:"suyuqlik",c:"qattiq (kristall yoki kukun)",m:"qattiq (metall)",r:"radioaktiv, asosan sun'iy yo'l bilan olinadi",set:"Sozlamalar",view:"Interfeys",vphone:"Telefon",vdesk:"Kompyuter",lang:"Til",th:"Mavzu",tauto:"Avto",tlight:"Yorug'",tdark:"Qorong'i",snd:"Ovoz",anm:"Animatsiyalar",rpl:"Jadval animatsiyasini qayta ko'rsatish",cls:"Yopish",qt:"Test (viktorina)",qd:"10 ta savol. Bilimingizni sinab ko'ring!",q1:"Belgi \u2192 nom",q2:"Nom \u2192 belgi",q3:"Raqam \u2192 element",q1q:"Bu qaysi element?",q2q:"Uning belgisi qaysi?",q3q:"Bu tartib raqami qaysi elementniki?",qbest:"Eng yaxshi natija",qres:"Natija",qagain:"Qayta urinish",qhome:"Boshiga"},
-ru:{title:"ПЕРИОДИЧЕСКАЯ СИСТЕМА ХИМИЧЕСКИХ ЭЛЕМЕНТОВ Д. И. МЕНДЕЛЕЕВА",davr:"ПЕРИОД",qator:"РЯД",grp:"ГРУППЫ ЭЛЕМЕНТОВ",enl:"ЭНЕРГЕТИЧЕСКИЕ УРОВНИ",cap:"*ЛАНТАНОИДЫ И **АКТИНОИДЫ",elems:"-элементы",hint:"Нажмите на элемент \u2014 подробная информация появится здесь.",ct:"Калькулятор формул: протоны, нейтроны, электроны",ph:"Например: H2SO4, Ca(OH)2, Al2(SO4)3",go:"Рассчитать",e1:"Скобка не закрыта",e2:"Неизвестный элемент: ",e3:"Лишняя скобка",e4:"Недопустимый символ: ",e5:"Пустая формула",c1:"Элемент",c2:"Кол-во",pr:"Протоны",ne:"Нейтроны",el2:"Электроны",tot:"Итого",chg:"заряд",pne:"Протоны + нейтроны + электроны",mr:"Сумма массовых чисел (округлённая Mr)",num:"порядковый номер",el:"-элемент",am:"Атомная масса",mn:"массовое число",ipr:"Протоны",iel:"электроны",ine:"нейтроны",sl:"Электронные оболочки",hl:"Состояние",gr:"группа",pe:"период",ro:"ряд",lan:"лантаноид",act:"актиноид",v3d:"3D-вид",fa:"Строение атома",fb:"Внешний вид",g:"газ",l:"жидкость",c:"твёрдое (кристаллы или порошок)",m:"твёрдое (металл)",r:"радиоактивный, в основном получен искусственно",set:"Настройки",view:"Интерфейс",vphone:"Телефон",vdesk:"Компьютер",lang:"Язык",th:"Тема",tauto:"Авто",tlight:"Светлая",tdark:"Тёмная",snd:"Звук",anm:"Анимации",rpl:"Показать анимацию таблицы снова",cls:"Закрыть",qt:"Тест (викторина)",qd:"10 вопросов. Проверьте свои знания!",q1:"Символ \u2192 название",q2:"Название \u2192 символ",q3:"Номер \u2192 элемент",q1q:"Что это за элемент?",q2q:"Какой у него символ?",q3q:"Чей это порядковый номер?",qbest:"Лучший результат",qres:"Результат",qagain:"Ещё раз",qhome:"В начало"}};
+const I18={uz:{oxt:"Oksidlanish darajasi kalkulyatori",ox:"Oksidlanish darajalari",oxn:"Oksidlanish darajasini aniqlab bo'lmadi",oxa:"o'rtacha qiymat",oxp:"peroksid",oxs:"superoksid",title:"D.I.MENDELEYEV KIMYOVIY ELEMENTLAR DAVRIY SISTEMASI",davr:"DAVR",qator:"QATOR",grp:"ELEMENTLAR GURUHI",enl:"ENERGETIK QAVATLAR",cap:"*LANTANOIDLAR VA **AKTINOIDLAR",elems:"-elementlar",hint:"Elementni bosing \u2014 to'liq ma'lumot shu yerda chiqadi.",ct:"Formula kalkulyatori: proton, neytron, elektron",ph:"Masalan: H2SO4, Ca(OH)2, Al2(SO4)3",go:"Hisobla",e1:"Qavs yopilmagan",e2:"Noma'lum element: ",e3:"Ortiqcha qavs",e4:"Noto'g'ri belgi: ",e5:"Formula bo'sh",c1:"Element",c2:"Soni",pr:"Proton",ne:"Neytron",el2:"Elektron",tot:"Jami",chg:"zaryad",pne:"Proton + neytron + elektron",mr:"Massa sonlari yig'indisi (yaxlitlangan Mr)",num:"tartib raqami",el:"-element",am:"Atom massasi",mn:"massa soni",ipr:"Protonlar",iel:"elektronlar",ine:"neytronlar",sl:"Elektron qavatlari",hl:"Holati",gr:"guruh",pe:"davr",ro:"qator",lan:"lantanoid",act:"aktinoid",v3d:"3D ko'rinish",fa:"Atom tuzilishi",fb:"Tashqi ko'rinishi",g:"gaz",l:"suyuqlik",c:"qattiq (kristall yoki kukun)",m:"qattiq (metall)",r:"radioaktiv, asosan sun'iy yo'l bilan olinadi",set:"Sozlamalar",view:"Interfeys",vphone:"Telefon",vdesk:"Kompyuter",lang:"Til",th:"Mavzu",tauto:"Avto",tlight:"Yorug'",tdark:"Qorong'i",snd:"Ovoz",anm:"Animatsiyalar",rpl:"Jadval animatsiyasini qayta ko'rsatish",cls:"Yopish",qt:"Test (viktorina)",qd:"10 ta savol. Bilimingizni sinab ko'ring!",q1:"Belgi \u2192 nom",q2:"Nom \u2192 belgi",q3:"Raqam \u2192 element",q1q:"Bu qaysi element?",q2q:"Uning belgisi qaysi?",q3q:"Bu tartib raqami qaysi elementniki?",qbest:"Eng yaxshi natija",qres:"Natija",qagain:"Qayta urinish",qhome:"Boshiga"},
+ru:{oxt:"Калькулятор степеней окисления",ox:"Степени окисления",oxn:"Не удалось определить степени окисления",oxa:"средняя величина",oxp:"пероксид",oxs:"супероксид",title:"ПЕРИОДИЧЕСКАЯ СИСТЕМА ХИМИЧЕСКИХ ЭЛЕМЕНТОВ Д. И. МЕНДЕЛЕЕВА",davr:"ПЕРИОД",qator:"РЯД",grp:"ГРУППЫ ЭЛЕМЕНТОВ",enl:"ЭНЕРГЕТИЧЕСКИЕ УРОВНИ",cap:"*ЛАНТАНОИДЫ И **АКТИНОИДЫ",elems:"-элементы",hint:"Нажмите на элемент \u2014 подробная информация появится здесь.",ct:"Калькулятор формул: протоны, нейтроны, электроны",ph:"Например: H2SO4, Ca(OH)2, Al2(SO4)3",go:"Рассчитать",e1:"Скобка не закрыта",e2:"Неизвестный элемент: ",e3:"Лишняя скобка",e4:"Недопустимый символ: ",e5:"Пустая формула",c1:"Элемент",c2:"Кол-во",pr:"Протоны",ne:"Нейтроны",el2:"Электроны",tot:"Итого",chg:"заряд",pne:"Протоны + нейтроны + электроны",mr:"Сумма массовых чисел (округлённая Mr)",num:"порядковый номер",el:"-элемент",am:"Атомная масса",mn:"массовое число",ipr:"Протоны",iel:"электроны",ine:"нейтроны",sl:"Электронные оболочки",hl:"Состояние",gr:"группа",pe:"период",ro:"ряд",lan:"лантаноид",act:"актиноид",v3d:"3D-вид",fa:"Строение атома",fb:"Внешний вид",g:"газ",l:"жидкость",c:"твёрдое (кристаллы или порошок)",m:"твёрдое (металл)",r:"радиоактивный, в основном получен искусственно",set:"Настройки",view:"Интерфейс",vphone:"Телефон",vdesk:"Компьютер",lang:"Язык",th:"Тема",tauto:"Авто",tlight:"Светлая",tdark:"Тёмная",snd:"Звук",anm:"Анимации",rpl:"Показать анимацию таблицы снова",cls:"Закрыть",qt:"Тест (викторина)",qd:"10 вопросов. Проверьте свои знания!",q1:"Символ \u2192 название",q2:"Название \u2192 символ",q3:"Номер \u2192 элемент",q1q:"Что это за элемент?",q2q:"Какой у него символ?",q3q:"Чей это порядковый номер?",qbest:"Лучший результат",qres:"Результат",qagain:"Ещё раз",qhome:"В начало"}};
 let LG=(()=>{let c={};try{c=JSON.parse(localStorage.getItem("dj_cfg")||"{}")}catch(e){}return c.lg==="ru"||c.lg==="uz"?c.lg:(/^ru/i.test(navigator.language||"")?"ru":"uz")})();
 const TR=k=>(I18[LG]&&I18[LG][k])||I18.uz[k]||k;
 const NM=i=>LG==="ru"?NR[i]:N[i];
@@ -559,6 +668,38 @@ else if(c==")"||c=="]"){i++;return o}
 else if(/[A-Z]/.test(c)){let s=c;i++;while(i<f.length&&/[a-z]/.test(f[i]))s+=f[i++];if(!S.includes(s))throw new Error(TR("e2")+s);const n=num();o[s]=(o[s]||0)+n}
 else throw new Error(TR("e4")+c)}return o};
 const r=grp();if(i<f.length)throw new Error(TR("e3"));return r};
+/* oksidlanish darajasi */
+const OXEN="2.2 0 .98 1.57 2.04 2.55 3.04 3.44 3.98 0 .93 1.31 1.61 1.9 2.19 2.58 3.16 0 .82 1 1.36 1.54 1.63 1.66 1.55 1.83 1.88 1.91 1.9 1.65 1.81 2.01 2.18 2.55 2.96 3 .82 .95 1.22 1.33 1.6 2.16 1.9 2.2 2.28 2.2 1.93 1.69 1.78 1.96 2.05 2.1 2.66 2.6 .79 .89 1.1 1.12 1.13 1.14 1.13 1.17 1.2 1.2 1.1 1.22 1.23 1.24 1.25 1.1 1.27 1.3 1.5 2.36 1.9 2.2 2.2 2.28 2.54 2 1.62 2.33 2.02 2 2.2 2.2 .7 .9 1.1 1.3 1.5 1.38 1.36 1.28".split(" ").map(Number);
+const OXT={Mn:[2,7,4,6,3],Fe:[3,2,6],Cr:[3,6,2],Cu:[2,1],Co:[2,3],Ni:[2,3],Ti:[4,3],V:[5,4,3,2],Hg:[2,1],Au:[3,1],Pt:[4,2],Pd:[2,4],Sn:[4,2],Pb:[2,4],Bi:[3,5],Tl:[1,3],Mo:[6,4],W:[6,4],Cl:[7,5,3,1,-1],Br:[5,7,3,1,-1],I:[5,7,1,-1,3],N:[5,3,-3,4,2,1],P:[5,3,-3,1],S:[6,4,-2,2,-1],C:[4,2,-4],B:[3],Si:[4,-4],Se:[6,4,-2],As:[5,3,-3],Sb:[5,3,-3]};
+const OXF={F:-1,Al:3,Zn:2,Cd:2,Ag:1,Ga:3,Sc:3,Y:3,La:3};
+const oxFix=e=>{if(OXF[e]!==undefined)return OXF[e];const z=S.indexOf(e)+1,p=pos(z);return z>1&&p[0]<9&&p[1]<=2?p[1]:undefined};
+const oxCand=z=>{const e=S[z-1],p=pos(z),r=p[0],g=p[1];let lo=0,hi;if(r>=9)hi=6;else if(g<=12)hi=Math.min(g,8);else{hi=g==18?8:g-10;if(g>=14&&g<18)lo=g-18}
+const a=(OXT[e]||(r>=9?[3,4,2]:g<=12?[Math.min(g,8)]:[hi])).slice();for(let v=hi;v>=lo;v--)if(!a.includes(v))a.push(v);return a};
+const OX=(tot,q)=>{const ks=Object.keys(tot),Z=e=>S.indexOf(e)+1,en=e=>OXEN[Z(e)-1]||1.3,s={};
+if(ks.length==1)return{[ks[0]]:q/tot[ks[0]]};
+let fx=0;const U=[],oth=ks.filter(e=>e!="H"&&e!="O");
+oth.forEach(e=>{const f=oxFix(e);if(f===undefined)U.push(e);else{s[e]=f;fx+=f*tot[e]}});
+const hasO=tot.O>0,hasH=tot.H>0,hy=!hasO&&oth.length>0&&oth.every(e=>en(e)<2.1);
+if(!U.length){if(hasO){if(hasH){s.H=1;fx+=tot.H}s.O=(q-fx)/tot.O}else if(hasH)s.H=(q-fx)/tot.H}
+else{if(hasO){s.O=-2;fx-=2*tot.O}if(hasH){s.H=hy?-1:1;fx+=s.H*tot.H}
+const rem=q-fx;
+if(U.length==1)s[U[0]]=rem/tot[U[0]];
+else if(U.length>5)return null;
+else{U.sort((a,b)=>en(b)-en(a));const C=U.map(e=>oxCand(Z(e)));
+const run=fr=>{let best=null,bs=1e9;const cur=[];const rec=(i,sum)=>{const e=U[i];
+if(i==U.length-1){const v=(rem-sum)/tot[e];if(Number.isInteger(v)&&C[i].includes(v)||fr&&Math.abs(v)<=8){cur[i]=v;const st=Object.assign({},s);U.forEach((x,k)=>st[x]=cur[k]);let p=0;U.forEach((x,k)=>{const ix=C[k].indexOf(cur[k]);p+=ix<0?6:ix});
+for(const a of ks)for(const b of ks)if(en(a)>en(b)+.05&&st[a]>0&&st[b]<0)p+=10;if(p<bs){bs=p;best=cur.slice()}}return}
+for(const v of C[i]){cur[i]=v;rec(i+1,sum+v*tot[e])}};rec(0,0);return best};
+const b=run(0)||run(1);if(!b)return null;U.forEach((e,i)=>s[e]=b[i])}}
+if(Math.abs(ks.reduce((a,e)=>a+s[e]*tot[e],0)-q)>1e-9)return null;
+const o={};ks.forEach(e=>o[e]=s[e]);return o};
+const OXFM=v=>{if(Math.abs(v)<1e-9)return"0";const sg=v>0?"+":"\u2212",a=Math.abs(v);if(Math.abs(a-Math.round(a))<1e-9)return sg+Math.round(a);for(let d=2;d<=12;d++){const n=a*d;if(Math.abs(n-Math.round(n))<1e-9)return sg+Math.round(n)+"/"+d}return sg+a.toFixed(2)};
+const OXH=(tot,q,tr)=>{const r=OX(tot,q);if(!r)return'<div class="ox"><b>'+tr("ox")+'</b><div class="oxe">'+tr("oxn")+'</div></div>';
+let av=0,ch="";const sm=[],ks=Object.keys(tot);
+for(const e in r){const v=r[e],n=tot[e],a=!Number.isInteger(v)||(e=="C"&&n>1&&tot.H>0&&ks.every(x=>"C H O N S F Cl Br I P".split(" ").includes(x)));if(a)av=1;
+const nt=e=="O"&&v==-1?" ("+tr("oxp")+")":e=="O"&&v==-.5?" ("+tr("oxs")+")":"";
+ch+='<span class="oxc"><b>'+e+'</b><sup>'+OXFM(v)+(a?"*":"")+'</sup><small>\u00d7'+n+nt+'</small></span>';sm.push(n+"\u00b7("+OXFM(v)+")")}
+return'<div class="ox"><b>'+tr("ox")+'</b><div class="oxl">'+ch+'</div><div class="oxs">'+sm.join(" + ")+" = "+OXFM(q)+'</div>'+(av?'<div class="oxs">* '+tr("oxa")+'</div>':"")+'</div>'};
 const calc=()=>{const res=document.getElementById("res");let raw=document.getElementById("fi").value.trim();if(!raw){res.innerHTML="";return}
 try{raw=raw.replace(/[\u2080-\u2089]/g,c=>c.charCodeAt(0)-8320).replace(/\u00b2/g,"^2").replace(/\u00b3/g,"^3").replace(/\u207a/g,"+").replace(/\u207b/g,"-").replace(/\u2212/g,"-");let q=0;let m=raw.match(/(?:\^|\s)(\d*)([+-])$/);if(!m){const m2=raw.match(/([A-Za-z\d)\]])([+-])$/);if(m2)m=Object.assign(["","",m2[2]],{index:m2.index+1})}
 if(m){q=(m[1]?+m[1]:1)*(m[2]=="+"?1:-1);raw=raw.slice(0,m.index)}
@@ -570,7 +711,7 @@ const E=P-q,Mr=P+Nn;
 res.innerHTML=`<table><tr><th>${TR("c1")}</th><th>${TR("c2")}</th><th>${TR("pr")}</th><th>${TR("ne")}</th><th>${TR("el2")}</th></tr>${rows}<tr class=tot><td colspan=2>${TR("tot")}${q?` (${TR("chg")} ${q>0?"+":""}${q})`:""}</td><td>${P}</td><td>${Nn}</td><td>${E}</td></tr></table><div class=big>${TR("pne")} = ${P} + ${Nn} + ${E} = ${P+Nn+E}</div><div>${TR("mr")}: ${Mr}</div>`}
 catch(e){res.innerHTML=`<div class=er>${e.message}</div>`}};
 document.getElementById("fb").onclick=calc;document.getElementById("fi").onkeydown=e=>{if(e.key=="Enter")calc()};
-["H2O","H2S","HCl","HNO3","H2SO4","H3PO4","Ca(OH)2","Al2(SO4)3","NH4^+","CuSO4·5H2O"].forEach(x=>{const b=document.createElement("button");b.textContent=x;b.onclick=()=>{document.getElementById("fi").value=x;calc()};document.getElementById("fc").appendChild(b)});
+["H2O","H2S","HCl","HNO3","H2SO4","H3PO4","Ca(OH)2","Al2(SO4)3","NH4^+","CuSO4·5H2O","KMnO4","K2Cr2O7","Fe3O4","H2O2","NaH","CH3COOH"].forEach(x=>{const b=document.createElement("button");b.textContent=x;b.onclick=()=>{document.getElementById("fi").value=x;calc()};document.getElementById("fc").appendChild(b)});
 <\/script><style>
 body{background:radial-gradient(1100px 520px at 15% -5%,color-mix(in srgb,var(--frame) 28%,transparent),transparent),var(--bg);min-height:100vh}
 .poster{background:linear-gradient(160deg,var(--frame),color-mix(in srgb,var(--frame),#000 40%));box-shadow:0 24px 60px rgba(10,15,40,.35);padding:16px}
@@ -923,6 +1064,14 @@ const cu=el=>{const v=+el.textContent;if(!(v>0))return;const t0=performance.now(
 new MutationObserver(()=>{if(!res.innerHTML)return;if(res.querySelector(".er")){tone(160,.3,"sawtooth",.06,0,90);return}
 res.querySelectorAll("tr").forEach((r,i)=>r.style.animationDelay=(i*80)+"ms");res.querySelectorAll(".tot td:not([colspan])").forEach(cu);
 for(let i=0;i<9;i++)tone(300+i*70,.05,"triangle",.03,i*.07);[523,659,784,1047].forEach((f,i)=>tone(f,.25,"triangle",.07,.6+i*.08))}).observe(res,{childList:true});
+const OG=id=>document.getElementById(id);
+const oxCalc=()=>{const out=OG("ores");let raw=OG("oi").value.trim();if(!raw){out.innerHTML="";return}
+try{raw=raw.replace(/[\u2080-\u2089]/g,c=>c.charCodeAt(0)-8320).replace(/\u00b2/g,"^2").replace(/\u00b3/g,"^3").replace(/\u207a/g,"+").replace(/\u207b/g,"-").replace(/\u2212/g,"-");
+let q=0,m=raw.match(/(?:\^|\s)(\d*)([+-])$/);if(m){q=(m[1]?+m[1]:1)*(m[2]=="+"?1:-1);raw=raw.slice(0,m.index)}else{m=raw.match(/([A-Za-z\d)\]])([+-])$/);if(m){q=m[2]=="+"?1:-1;raw=raw.slice(0,-1)}}
+raw=raw.replace(/\s+/g,"");const tot={};raw.split(/[\u00b7*.]/).forEach(p=>{const mm=p.match(/^(\d+)(.*)$/),k=mm?+mm[1]:1,g=parseF(mm?mm[2]:p);for(const e in g)tot[e]=(tot[e]||0)+g[e]*k});
+if(!Object.keys(tot).length)throw new Error(TR("e5"));out.innerHTML=OXH(tot,q,TR)}catch(e){out.innerHTML='<div class="oxe">'+e.message+'</div>'}};
+OG("ob").onclick=oxCalc;OG("oi").addEventListener("keydown",e=>{if(e.key==="Enter"){oxCalc();e.target.blur()}});
+["H2SO4","KMnO4","K2Cr2O7","Fe3O4","H2O2","NaH","NH4NO3","CH3COOH","SO4^2-","MnO4^-","Cr2O7^2-"].forEach(x=>{const b=document.createElement("button");b.textContent=x;b.onclick=()=>{OG("oi").value=x;oxCalc()};OG("oex").appendChild(b)});
 const calcEl=document.getElementById("calc");calcEl.classList.add("rv");
 if("IntersectionObserver"in window){const io=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting){x.target.classList.add("in");io.unobserve(x.target)}}),{threshold:.1});io.observe(calcEl)}else calcEl.classList.add("in");
 lg.addEventListener("click",()=>{let i=0;els.forEach(([d])=>{if(!d.classList.contains("dim")&&d.animate)d.animate([{transform:"scale(1)"},{transform:"scale(1.18)"},{transform:"scale(1)"}],{duration:520,delay:(i++)*9,easing:"cubic-bezier(.22,1,.36,1)"})})});
@@ -966,7 +1115,7 @@ document.querySelectorAll("#t .e").forEach(c=>{c.querySelector(".nm").textConten
 [...lg.children].forEach((b,k)=>{b.lastChild.textContent=BN[k]+TR("elems")});
 document.querySelector("#calc h2").textContent=TR("ct");document.getElementById("fi").placeholder=TR("ph");document.getElementById("fb").textContent=TR("go");
 cog.textContent="\u2699\ufe0f "+TR("set");
-if(document.getElementById("res").innerHTML)calc();
+if(document.getElementById("res").innerHTML)calc();OG("oh").textContent=TR("oxt");OG("ob").textContent=TR("go");if(OG("ores").innerHTML)oxCalc();
 if(!qs||qs.done)qHome();
 if(curZ)applyInfo(curZ);else info.textContent=TR("hint")};
 relangD();
@@ -1058,6 +1207,60 @@ q$(".o3bar").querySelectorAll("button").forEach(b=>b.onclick=()=>{const k=b.data
 sync();ov.classList.add("on");last=performance.now();cancelAnimationFrame(raf);raf=requestAnimationFrame(frame)};
 })();
 <\/script>
+<style>
+.ox{margin-top:12px;padding-top:10px;border-top:1px solid var(--line,#888)}
+.ox>b{display:block;font-size:14px;margin-bottom:8px}
+.oxl{display:flex;flex-wrap:wrap;gap:8px}
+.oxc{display:inline-flex;align-items:flex-start;gap:3px;padding:6px 10px;border-radius:12px;background:var(--card2,rgba(128,128,128,.18));font:700 20px Georgia,serif;animation:oxin .45s cubic-bezier(.22,1,.36,1) backwards}
+.oxc sup{font:700 13px system-ui,sans-serif;color:var(--acc,#2f6fe0);margin-top:-2px}
+.oxc small{font:600 11px system-ui,sans-serif;opacity:.65;align-self:flex-end}
+.oxs{margin-top:8px;font-size:13px;opacity:.75}
+.oxe{color:#d33;font-weight:600}
+@keyframes oxin{from{opacity:0;transform:translateY(8px) scale(.9)}}
+
+/* ===== LIQUID GLASS (kompyuter) ===== */
+:root{--g1:rgba(255,255,255,.16);--g2:rgba(255,255,255,.04);--gb:rgba(255,255,255,.28);--gh:rgba(255,255,255,.6);--gs:0 12px 34px rgba(0,0,0,.4),0 2px 8px rgba(0,0,0,.25)}
+html[data-theme="light"]{--g1:rgba(255,255,255,.74);--g2:rgba(255,255,255,.4);--gb:rgba(255,255,255,.95);--gh:#fff;--gs:0 12px 34px rgba(40,60,120,.22),0 2px 8px rgba(40,60,120,.12)}
+body{padding-top:72px}
+.bar{position:fixed;top:12px;left:50%;transform:translateX(-50%);z-index:60;width:max-content;max-width:calc(100vw - 20px);margin:0;padding:6px;gap:6px;justify-content:center;border-radius:999px;background:linear-gradient(135deg,var(--g1),var(--g2));-webkit-backdrop-filter:blur(22px) saturate(190%);backdrop-filter:blur(22px) saturate(190%);border:1px solid var(--gb);box-shadow:inset 0 1px 0 var(--gh),inset 0 -1px 0 rgba(255,255,255,.1),inset 0 0 22px rgba(255,255,255,.07),var(--gs)}
+.bar::before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:linear-gradient(165deg,rgba(255,255,255,.34),transparent 40%,transparent 62%,rgba(255,255,255,.1));opacity:.7}
+.bar button{position:relative;background:var(--g1);border:1px solid var(--gb);box-shadow:inset 0 1px 0 var(--gh),0 2px 6px rgba(0,0,0,.12);transition:transform .25s cubic-bezier(.3,1.5,.5,1),background .2s}
+.bar button:hover{background:var(--g1);transform:translateY(-1px) scale(1.06);box-shadow:inset 0 1px 0 var(--gh),0 6px 16px rgba(0,0,0,.25)}
+#dset{-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+#dset .dc{background:linear-gradient(145deg,rgba(40,46,64,.62),rgba(14,16,24,.5));-webkit-backdrop-filter:blur(30px) saturate(180%);backdrop-filter:blur(30px) saturate(180%);border:1px solid var(--gb);box-shadow:inset 0 1px 0 var(--gh),0 24px 70px rgba(0,0,0,.5)}
+html[data-theme="light"] #dset .dc{background:linear-gradient(145deg,rgba(255,255,255,.82),rgba(238,243,255,.62));border-color:#fff;box-shadow:inset 0 1px 0 #fff,0 24px 70px rgba(40,60,120,.3)}
+
+.bar{animation:topin2 .7s cubic-bezier(.22,1,.36,1) backwards}
+@keyframes topin2{from{opacity:0;transform:translate(-50%,-18px) scale(.96)}}
+.bar button:hover{transform:translateY(-1px) scale(1.04)}
+.ox{margin:0 0 12px;padding:0 0 12px;border-top:0;border-bottom:1px solid var(--line,#888)}
+.oxc:nth-child(2){animation-delay:.06s}.oxc:nth-child(3){animation-delay:.12s}.oxc:nth-child(4){animation-delay:.18s}.oxc:nth-child(5){animation-delay:.24s}
+
+:root{--ios:cubic-bezier(.32,.72,0,1)}
+@keyframes iosin{from{opacity:0;transform:translateY(12px) scale(.96)}}
+@keyframes iosfade{from{opacity:0}}
+
+/* ===== iOS animatsiyalar (kompyuter) ===== */
+#oxcalc{margin:10px auto 0;max-width:1500px;padding:12px;border-radius:8px;background:var(--card);color:var(--ink)}#oxcalc h2{margin:0 0 8px;font-size:17px}#oxcalc .row{display:flex;gap:8px;flex-wrap:wrap}
+#oi{flex:1;min-width:200px;font:600 18px system-ui;padding:8px 10px;border:2px solid var(--line);border-radius:8px;background:var(--card);color:var(--ink);transition:box-shadow .3s var(--ios),border-color .3s}#oi:focus{outline:none;border-color:#78aaff;box-shadow:0 0 0 4px rgba(120,170,255,.3)}
+#oxcalc button{font:600 15px system-ui;padding:8px 16px;border-radius:8px;border:2px solid var(--line);background:var(--p);color:#000;cursor:pointer}
+#oxcalc .row #ob{background:linear-gradient(135deg,#ffd75e,#ff9f43);border:0;box-shadow:0 3px 10px rgba(255,159,67,.45)}
+#oxcalc .ch{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0}#oxcalc .ch button{font-size:13px;padding:3px 10px;background:var(--card);color:var(--ink);border-radius:14px}
+html[data-theme="light"] #oxcalc{box-shadow:0 6px 20px rgba(30,40,90,.12)}
+.e,.e0,.h{animation:iosin .75s var(--ios) backwards;animation-delay:var(--dl,0s)}
+.e{transition:transform .45s var(--ios),box-shadow .35s,opacity .4s,filter .4s}
+.e:hover{transform:scale(1.13);transition:transform .35s var(--ios),box-shadow .3s,opacity .4s,filter .4s}
+@media(hover:none){.e:hover{transform:scale(var(--sc,1))}}
+.rv{transition:opacity .7s var(--ios),transform .7s var(--ios)}
+.bar button,#calc button,#oxcalc button,#lg button,.qo,.qm,.dseg button,.dgo{transition:transform .35s var(--ios),background .25s,box-shadow .3s}
+.bar button:hover,#lg button:hover{transform:scale(1.04)}
+.bar button:active,#calc button:active,#oxcalc button:active,#lg button:active,.qo:active,.qm:active,.dgo:active{transform:scale(.95)}
+.bar{animation:topin2 .8s var(--ios) backwards}
+#dset.on{animation:iosfade .35s var(--ios)}
+#dset.on .dc{animation:iosin .55s var(--ios)}
+.dsw::after{transition:transform .4s var(--ios)}
+#res tr{animation:iosin .5s var(--ios) backwards}
+</style>
 </body></html>
 </script>
 <script>
